@@ -1,0 +1,46 @@
+; ----------------------------------------------------------------
+; macOS to Windows Shortcut Remapper
+; ----------------------------------------------------------------
+
+; Standard Copy/Paste/Undo/Save
+!c::Send ^c        ; Cmd+C -> Ctrl+C
+!v::Send ^v        ; Cmd+V -> Ctrl+V
+!x::Send ^x        ; Cmd+X -> Ctrl+X
+!z::Send ^z        ; Cmd+Z -> Ctrl+Z
+!s::Send ^s        ; Cmd+S -> Ctrl+S
+!a::Send ^a        ; Cmd+A -> Ctrl+A
+!f::Send ^f        ; Cmd+F -> Ctrl+F
+
+; Tabbing and Windows
+!t::Send ^t        ; Cmd+T -> New Tab
+!w::Send ^w        ; Cmd+W -> Close Tab
+!n::Send ^n        ; Cmd+N -> New Window
+!r::Send ^r        ; Cmd+R -> Refresh
+!l::Send ^l        ; Cmd+L -> Focus Address Bar
+
+; Advanced: Reopen closed tab (Cmd+Shift+T)
+!+t::Send ^+t
+
+; --- Text Navigation (The macOS "Cmd + Arrow" style) ---
+
+; Move cursor to beginning/end of line
+!Left::Send {Home}
+!Right::Send {End}
+
+; Move cursor to beginning/end of document
+!Up::Send ^{Home}
+!Down::Send ^{End}
+
+; --- Text Selection (The macOS "Cmd + Shift + Arrow" style) ---
+
+; Select to beginning/end of line
+!+Left::Send +{Home}
+!+Right::Send +{End}
+
+; Select to beginning/end of document
+!+Up::Send ^+{Home}
+!+Down::Send ^+{End}
+
+; --- App Switching ---
+; Maps Alt+Tab to feel like Cmd+Tab (Standard Windows Alt+Tab)
+; Note: Since we are using Alt for Cmd, this might feel natural already.
