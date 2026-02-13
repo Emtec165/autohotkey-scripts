@@ -2,59 +2,46 @@
 ; macOS to Windows Shortcut Remapper
 ; ----------------------------------------------------------------
 
-; Standard Copy/Paste/Undo/Save
-!c::Send '^c'        ; Cmd+C -> Ctrl+C
-!v::Send '^v'        ; Cmd+V -> Ctrl+V
-!x::Send '^x'        ; Cmd+X -> Ctrl+X
-!z::Send '^z'        ; Cmd+Z -> Ctrl+Z
-!s::Send '^s'        ; Cmd+S -> Ctrl+S
-!a::Send '^a'        ; Cmd+A -> Ctrl+A
-!f::Send '^f'        ; Cmd+F -> Ctrl+F
-!/::Send '^/'        ; Cmd+F -> Ctrl+/
+; --- Standard Copy/Paste/Undo/Save ---
+!c::Send '^c'                 ; Cmd+C -> Ctrl+C
+!v::Send '^v'                 ; Cmd+V -> Ctrl+V
+!x::Send '^x'                 ; Cmd+X -> Ctrl+X
+!z::Send '^z'                 ; Cmd+Z -> Ctrl+Z
+!+z::Send '^+z'               ; Cmd+Shift+Z -> Ctrl+Shift+Z (Redo)
+!s::Send '^s'                 ; Cmd+S -> Ctrl+S
+!a::Send '^a'                 ; Cmd+A -> Ctrl+A
+!f::Send '^f'                 ; Cmd+F -> Ctrl+F
+!/::Send '^/'                 ; Cmd+F -> Ctrl+/ (Comment line)
+!q::Send '!{F4}'              ; Cmd+Q -> Alt+F4 (Quit App)
 
-; Redo Operation (Cmd+Shift+Z)
-!+z::Send '^+z'      ; Cmd+Shift+Z -> Ctrl+Shift+Z
-
-; Tabbing and Windows
-!t::Send '^t'        ; New Tab
-!w::Send '^w'        ; Close Tab
-!n::Send '^n'        ; New Window
-!r::Send '^r'        ; Refresh
-!l::Send '^l'        ; Focus Address Bar
-
-; Reopen closed tab (Cmd+Shift+T)
-!+t::Send '^+t'
+; --- Tabbing and Windows ---
+!t::Send '^t'                 ; New Tab
+!+t::Send '^+t'               ; Reopen tab
+!w::Send '^w'                 ; Close Tab
+!n::Send '^n'                 ; New Window
+!r::Send '^r'                 ; Refresh
+!l::Send '^l'                 ; Focus Address Bar
 
 ; --- Text Navigation (The macOS "Cmd + Arrow" style) ---
-!Left::Send '{Home}'
-!Right::Send '{End}'
-!Up::Send '^{Home}'
-!Down::Send '^{End}'
+!Left::Send '{Home}'          ; Go to line begining
+!Right::Send '{End}'          ; Go to line end
+!Up::Send '^{Home}'           ; Go up
+!Down::Send '^{End}'          ; Go down
 
 ; --- Text Selection (The macOS "Cmd + Shift + Arrow" style) ---
 !+Left::Send '+{Home}'        ; Select whole line to the left   (Cmd + Shift + Left equivalent)
 !+Right::Send '+{End}'        ; Select whole line to the right  (Cmd + Shift + Right equivalent)
 !+Up::Send '^+{Home}'         ; Select whole text up            (Cmd + Shift + Up equvalent)
 !+Down::Send '^+{End}'        ; Select whole text down          (Cmd + Shift + Down equvalent)
-<#+Left::Send '^+{Left}'      ; Select whole words              (Opt + Shift + Left equivalent)
-<#+Right::Send '^+{Right}'    ; Select whole words              (Opt + Shift + Right equivalent)
+<#+Left::Send '^+{Left}'      ; Select whole words to the left  (Opt + Shift + Left equivalent)
+<#+Right::Send '^+{Right}'    ; Select whole words to the right (Opt + Shift + Right equivalent)
 
 ; --- Chrome/Edge/Browser Tab Switching ---
-!+[::Send '^+{Tab}'           ; Previous Tab Cmd+Shift+[
-!+]::Send '^{Tab}'            ; Next Tab Cmd+Shift+]
+!+[::Send '^+{Tab}'           ; Previous Tab     (Cmd + Shift + [)
+!+]::Send '^{Tab}'            ; Next Tab         (Cmd + Shift + ])
 
-; Fix: Force Alt+Space to act like macOS Spotlight (Start Menu)
-!Space::
-{
-    KeyWait "Alt"          ; Wait for you to release Alt to prevent "Alt+Win" combo
-    Send "{LWin}"          ; Open the Start Menu
-    Return
-}
-; Alternative Fix: Send the Start Menu command directly
-!Space::Send "{Blind}{Alt Up}{LWin}"
-
-; Ensure Alt+Tab still works for app switching
-!Tab::Send "{Alt Down}{Tab}"
+; --- Misc ---
+!Space::Send "{Blind}{Alt Up}{LWin}"    ; MacOS like Spotlight (Cmd + Spacebar)
 
 ; --- Startup Notification ---
 MsgBox "Mac-o-Windows script running"
