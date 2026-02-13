@@ -3,8 +3,20 @@
 ; ----------------------------------------------------------------
 
 ; ---Disable Windows Language Switching (Alt+Shift) ---
-!Shift::Return
-+Alt::Return
+~Alt Up::
+{
+    if (A_PriorKey = "Shift")
+    {
+        return
+    }
+}
+~Shift Up::
+{
+    if (A_PriorKey = "Alt")
+    {
+        return
+    }
+}
 
 ; --- Standard Copy/Paste/Undo/Save ---
 !c::Send '^c'                 ; Cmd+C -> Ctrl+C
