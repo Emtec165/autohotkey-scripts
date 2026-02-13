@@ -43,5 +43,18 @@
 !+[::Send '^+{Tab}'           ; Previous Tab Cmd+Shift+[
 !+]::Send '^{Tab}'            ; Next Tab Cmd+Shift+]
 
+; Fix: Force Alt+Space to act like macOS Spotlight (Start Menu)
+!Space::
+{
+    KeyWait "Alt"          ; Wait for you to release Alt to prevent "Alt+Win" combo
+    Send "{LWin}"          ; Open the Start Menu
+    Return
+}
+; Alternative Fix: Send the Start Menu command directly
+!Space::Send "{Blind}{Alt Up}{LWin}"
+
+; Ensure Alt+Tab still works for app switching
+!Tab::Send "{Alt Down}{Tab}"
+
 ; --- Startup Notification ---
 MsgBox "Mac-o-Windows script running"
