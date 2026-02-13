@@ -10,6 +10,7 @@
 !s::Send '^s'        ; Cmd+S -> Ctrl+S
 !a::Send '^a'        ; Cmd+A -> Ctrl+A
 !f::Send '^f'        ; Cmd+F -> Ctrl+F
+!/::Send '^/'        ; Cmd+F -> Ctrl+/
 
 ; Redo Operation (Cmd+Shift+Z)
 !+z::Send '^+z'      ; Cmd+Shift+Z -> Ctrl+Shift+Z
