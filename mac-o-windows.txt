@@ -36,5 +36,13 @@
 !+Up::Send '^+{Home}'
 !+Down::Send '^+{End}'
 
+; --- Chrome/Edge/Browser Tab Switching ---
+!+[::Send '^{Tab}'    ; Previous Tab Cmd+Shift+[
+!+]::Send '^+{Tab}'   ; Next Tab Cmd+Shift+]
+
+; --- Misc ---
+!Space::Send '{LWin}'  ; Cmd+Space -> Start Menu (Spotlight Search)
+!`::Send '!{Esc}'      ; Cmd + ` (Backtick) -> Cycle through same-app windows
+
 ; --- Startup Notification ---
 MsgBox "Mac-o-Windows script running"
