@@ -2,6 +2,10 @@
 ; macOS to Windows Shortcut Remapper
 ; ----------------------------------------------------------------
 
+; ---Disable Windows Language Switching (Alt+Shift) ---
+!Shift::Return
++Alt::Return
+
 ; --- Standard Copy/Paste/Undo/Save ---
 !c::Send '^c'                 ; Cmd+C -> Ctrl+C
 !v::Send '^v'                 ; Cmd+V -> Ctrl+V
