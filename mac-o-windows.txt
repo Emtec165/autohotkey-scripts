@@ -31,18 +31,20 @@
 !Down::Send '^{End}'
 
 ; --- Text Selection (The macOS "Cmd + Shift + Arrow" style) ---
-!+Left::Send '+{Home}'
-!+Right::Send '+{End}'
-!+Up::Send '^+{Home}'
-!+Down::Send '^+{End}'
+!+Left::Send '+{Home}'        ; Select whole line to the left   (Cmd + Shift + Left equivalent)
+!+Right::Send '+{End}'        ; Select whole line to the right  (Cmd + Shift + Right equivalent)
+!+Up::Send '^+{Home}'         ; Select whole text up            (Cmd + Shift + Up equvalent)
+!+Down::Send '^+{End}'        ; Select whole text down          (Cmd + Shift + Down equvalent)
+<#+Left::Send '^+{Left}'      ; Select whole words              (Opt + Shift + Left equivalent)
+<#+Right::Send '^+{Right}'    ; Select whole words              (Opt + Shift + Right equivalent)
 
 ; --- Chrome/Edge/Browser Tab Switching ---
-!+[::Send '^{Tab}'    ; Previous Tab Cmd+Shift+[
-!+]::Send '^+{Tab}'   ; Next Tab Cmd+Shift+]
+!+[::Send '^+{Tab}'           ; Previous Tab Cmd+Shift+[
+!+]::Send '^{Tab}'            ; Next Tab Cmd+Shift+]
 
 ; --- Misc ---
-!Space::Send '{LWin}'  ; Cmd+Space -> Start Menu (Spotlight Search)
-!`::Send '!{Esc}'      ; Cmd + ` (Backtick) -> Cycle through same-app windows
+!Space::Send '{LWin}'         ; Cmd+Space -> Start Menu (Spotlight Search)
+!`::Send '!{Esc}'             ; Cmd + ` (Backtick) -> Cycle through same-app windows
 
 ; --- Startup Notification ---
 MsgBox "Mac-o-Windows script running"
