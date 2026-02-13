@@ -39,8 +39,10 @@
 !l::Send '^l'                 ; Focus Address Bar
 
 ; --- Text Navigation (The macOS "Cmd + Arrow" style) ---
-!Left::Send '{Home}'          ; Go to line begining
-!Right::Send '{End}'          ; Go to line end
+!Left::Send '{Home}'          ; Go to the line begining
+!Right::Send '{End}'          ; Go to the line end
+<#Left::Send '^{Left}'        ; Go one word to the left
+<#Right::Send '^{Right}'      ; Go one word to the right
 !Up::Send '^{Home}'           ; Go up
 !Down::Send '^{End}'          ; Go down
 
