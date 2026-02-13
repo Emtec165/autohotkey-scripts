@@ -27,7 +27,7 @@
 !s::Send '^s'                 ; Cmd+S -> Ctrl+S
 !a::Send '^a'                 ; Cmd+A -> Ctrl+A
 !f::Send '^f'                 ; Cmd+F -> Ctrl+F
-!/::Send '^/'                 ; Cmd+F -> Ctrl+/ (Comment line)
+!/::Send '^/'                 ; Cmd+/ -> Ctrl+/ (Comment line)
 !q::Send '!{F4}'              ; Cmd+Q -> Alt+F4 (Quit App)
 
 ; --- Tabbing and Windows ---
